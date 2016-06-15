@@ -1,0 +1,88 @@
+<!-- public/views/signUp.html
+<!-- Sign Up Page -->
+
+<div>
+    <!-- Nav bar-->
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/" title="KidQ">KidQ
+<!--                        <img style="max-height:50px;margin-left:70px; margin-top:-34px;" src="" alt="KidQ"/>-->
+                </a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li ng-class="{active: isActive('/Home')}"><a href="/">Home</a></li>
+                    <li ng-class="{active: isActive('/HowItWorks')}"><a href="/HowItWorks">How It Works</a></li>
+                    <li ng-class="{active: isActive('/Benefits')}"><a href="/Benefits">How It Works</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li ng-class="{active: isActive('/Register')}"><a href="/SignUp">Register</a></li>
+                    <li ng-class="{active: isActive('/SignIn')}"><a href="/AdminHome">Sign In</a></li><!--<a href="#/SignIn">Sign In</a></li>-->
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+    
+    <!-- Content -->
+    <div class="page-header">
+        <h1>Tell Us About Yourself</h1>
+        <h4>Please</h4>
+    </div>
+    <div>
+        <!-- Form -->
+        <form name="userForm" ng-controller="validateCtrl">
+            <div class="form-group">
+                <label for="inputSchoolName">School Name</label>
+                <input type="text" class="form-control" name="schoolName" id="inputSchoolName" placeholder="Classical Prepitory" ng-model="school.name" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="inputContact">Primary Contact</label>
+                <input type="text" class="form-control" name="contact" id="inputContact" placeholder="Joe Headmaster" ng-model="school.contact" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="inputSchoolAddress">Street Address</label>
+                <input type="text" class="form-control" name="address" id="inputSchoolAddress" placeholder="123 Sesame St" ng-model="school.address.street" required>
+            </div>
+
+            <div class="form-group">
+                <label for="inputCity">City</label>
+                <input type="text" class="form-control" name="city" id="inputCity" placeholder="Land O'Lakes" ng-model="school.address.city" required>
+            </div>
+
+            <div class="form-group">
+                <label for="inputState">State</label>
+                <select class="form-control" name="state" id=inputState ng-model="school.address.state" required>
+                    <option>FL</option>
+                    <option>NJ</option>
+                    <option>PA</option>
+                    <option>VA</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="inputZipcode">Zipcode</label>
+                <input type="text" class="form-control" name="zipCode" id="inputZipcode" placeholder="34609" ng-model="school.address.zip" required>
+            </div>
+
+            <div class="form-group">
+                <label for="inputCountry">Country</label>
+                <select class="form-control" name="country" id=inputCountry ng-model="school.address.country" required>
+                    <option>US</option>
+                </select>
+            </div>
+            
+<!--        <button type="button" class="btn btn-success" ng-disabled="userForm.$invalid" data-toggle="modal" data-target="#myModal" ng-click="GetPhoneNumber();">Make Your Wager</button>-->
+            <button type="button" class="btn btn-success" ng-disabled="userForm.$invalid">Continue</button>
+
+        </form>
+    </div>
+</div>

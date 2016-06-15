@@ -1,0 +1,154 @@
+<!-- public/views/adminHome.html -->
+<!-- Custom styles for this template -->
+        <link href="css/admin/dashboard.css" rel="stylesheet">
+<div>
+        
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/AdminHome">KidQ::Admin</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Settings</a></li>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Help</a></li>
+          </ul>
+          <form class="navbar-form navbar-right">
+            <input type="text" class="form-control" placeholder="Search...">
+          </form>
+        </div>
+      </div>
+    </nav>
+        
+        <div class="container-fluid">
+            
+            <div class="row">
+                <div class="col-sm-3 col-md-2 sidebar">
+                    <ul class="nav nav-sidebar">
+                        <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
+                        <li><a href="#">Notifications</a></li>
+                        <li><a href="#">Send Text</a></li>
+                        <li><a href="#">Profiles</a></li>
+                        <li><a href="#">IVR Settings</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+                    <div class="page-header">
+                        <h1>Phone Number</h1>
+                        <h4>Business Name</h4>
+                    </div>
+                    <h2>Stuff to</h2>
+                    {{say}}
+                    {{tagline}}
+                    {{dailyVoiceData}}
+                    {{updateData}}
+                    
+                    <div class="row placeholders">
+                        
+                        <div class="col-xs-12 col-sm-8 col-md-6 placeholder">
+                                <canvas admin-directive id="myChart1" data="data"></canvas>
+                            <h4>Total Text Messages</h4>
+                          <span class="text-muted">This Month</span>
+                        </div>
+                        <div class="col-xs-12 col-sm-8 col-md-6 placeholder">
+                            <canvas admin-directive id="totalVoiceChart" data=data2></canvas>
+                          <h4>Total Voice Calls</h4>
+                          <span class="text-muted">This Month</span>
+                        </div>
+                        <div class="col-xs-12 col-sm-8 col-md-6 placeholder">
+                            <canvas id="incomingSMSChart"></canvas>
+                            <h4>Incoming Text Messages</h4>
+                          <span class="text-muted">This Month</span>
+                        </div>
+                        <div class="col-xs-12 col-sm-8 col-md-6 placeholder">
+                            <canvas id="incomingVoiceChart"></canvas>
+                            <h4>Incoming Voice Calls</h4>
+                          <span class="text-muted">This Month</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bootstrap core JavaScript
+        ================================================== -->                
+        <!-- Chart.js -->
+        
+    <!-- Chart.js -->
+    <script src="../libs/Chart.js/dist/Chart.js"></script>
+
+    <script>
+        var ctx = document.getElementById("totalVoiceChart");
+        var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+            datasets: [{
+                label: '# of Votes',
+                data: [12, 19, 3, 5, 2, 3]
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero:true
+                    }
+                }]
+            }
+        }
+    });
+    </script>
+    <script>
+    var ctx = document.getElementById("incomingSMSChart");
+    var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+            datasets: [{
+                label: '# of Votes',
+                data: [5, 19, 7, 15, 2, 8]
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero:true
+                    }
+                }]
+            }
+        }
+    });
+    </script>
+    <script>
+    var ctx = document.getElementById("incomingVoiceChart");
+    var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+            datasets: [{
+                label: '# of Votes',
+                data: [5, 6, 13, 15, 23, 010]
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero:true
+                    }
+                }]
+            }
+        }
+    });
+    </script>
+    </div>

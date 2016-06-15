@@ -1,0 +1,39 @@
+<!-- public/views/home.html -->
+
+    <div>
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/" title="KidQ">KidQ
+<!--                        <img style="max-height:50px;margin-left:70px; margin-top:-34px;" src="" alt="KidQ"/>-->
+                    </a>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav">
+                        <li ng-class="{active: isActive('/Home')}"><a href="/">Home</a></li>
+                        <li ng-class="{active: isActive('/HowItWorks')}"><a href="/HowItWorks">How It Works</a></li>
+                        <li ng-class="{active: isActive('/Benefits')}"><a href="/Benefits">How It Works</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li ng-class="{active: isActive('/SignUp')}"><a href="/SignUp">Sign Up</a></li>
+                        <li ng-class="{active: isActive('/SignIn')}"><a href="/AdminHome">Log In</a></li><!--<a href="#/SignIn">Sign In</a></li>-->
+                    </ul>
+                </div>
+
+            </div>
+        </nav>
+        
+        <div style="height: 500px;"></div>
+        
+        <!-- FOOTER -->
+        <footer class="footer">
+        <div>
+            <p class="pull-right text-muted"><a href="/Faq">F.A.Q.</a></p>
+            <p class="text-muted">&copy; 2016 Gazelle Technica &middot; <a href="/Privacy">Privacy</a> &middot; <a href="/Terms">Terms</a></p>
+        </div>
+    </div>
