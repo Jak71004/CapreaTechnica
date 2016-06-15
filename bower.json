@@ -1,0 +1,13 @@
+{
+  "name": "mean_Template",
+  "version": "1.0.0",
+  "dependencies": {
+    "bootstrap": "latest",
+    "font-awesome": "latest",
+    "animate.css": "latest",
+    "angular": "latest",
+    "angular-route": "latest",
+    "Chart.js": "^2.1.2",
+    "angular-chartsj-directive":"latest"
+  }
+}
