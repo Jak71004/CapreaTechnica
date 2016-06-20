@@ -1,5 +1,12 @@
 // public/js/controllers/MaintCtrl.js
-angular.module('MainCtrl', []).controller('MainController', function($scope){
 
-   $scope.tagline = 'To the moon!'; 
-});
+(function(){
+    var module = angular.module('MainCtrl',[]);
+     
+    var MainCtrlVar = function($scope){
+        $scope.tagline = 'To The Moon!';
+    };
+    
+    MainCtrlVar.$inject = ['$scope'];
+    module.controller('MainController', MainCtrlVar);
+ }());
