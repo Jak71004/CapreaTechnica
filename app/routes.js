@@ -10,6 +10,9 @@ var twilioAccounts = require('./twilio/account.js');
         // server routes ===========================================================
         // handle things like api calls
         
+        //DEV_NOTES: None of the app.post calls will work.  They are not coded properly.
+        
+        
         //Usage Records
         app.get('/api/usage/sms', function(){twilioUsage.GetThisMonthTotalSMS();});
         app.get('/api/usage/test', function(){twilioUsage.GetSMS();});
@@ -29,8 +32,7 @@ var twilioAccounts = require('./twilio/account.js');
 
         });
         
-        //Needs to be a POST
-        app.get('/api/account/createSubAccount', function(req, res){
+        app.post('/api/account/createSubAccount', function(req, res){
             res.writeHead(200,{
                 'Content-Type':'text/xml'
             });
@@ -44,16 +46,33 @@ var twilioAccounts = require('./twilio/account.js');
             });
         });
         
-        app.get('/api/account/listPhoneNumbers', function(req, res){
+        app.get('/api/account/FindLocalPhoneNumbers', function(req, res){
             res.writeHead(200, {
                 'Content-Type':'text/xml'
             });
-            console.log('calling listPhoneNumbers');
-            var promise = twilioAccounts.listPhoneNumbers();
+            console.log('calling FindLocalPhoneNumbers');
+            var promise = twilioAccounts.FindLocalPhoneNumber();
             promise.then(function(result){
-                console.log('listPhoneNumbers: Promised Result');
-                //res.write(result.list);
-                //res.end;
+                console.log('FindLocalPhoneNumbers: Promised Result');
+                console.log(result.availablePhoneNumbers);
+                
+                res.write(result.availablePhoneNumbers);
+                res.end;
+            })
+        });
+        
+        app.post('/api/account/BuyLocalPhoneNumber', function(req, res){
+            res.writeHead(200, {
+                'Content-Type':'text/xml'
+            });
+            console.log('calling BuyLocalPhoneNumber');
+            var promise = twilioAccounts.BuyLocalPhoneNumber(req.schoolID, req.phoneNumber);
+            promise.then(function(result){
+                console.log('FindLocalPhoneNumbers: Promised Result');
+                console.log(result.sid);
+                
+                res.write(result.availablePhoneNumbers);
+                res.end;
             })
         });
         
