@@ -8,7 +8,7 @@
         $scope.SignUp = function(school){
             //Probably want to nest the ".THEN" 
             //save the schools data to db
-            function(school){};
+            //function(school){};
 
             //create subaccount friendly name is school's unique name
             signUpSvc.createSubAccount().then(function(data){

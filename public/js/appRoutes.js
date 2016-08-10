@@ -13,7 +13,7 @@
         })
         .when('/SignUp', {
             templateUrl: './../views/signUp.html',
-            //controller: 'SignUpController'
+            controller: 'SignUpController'
         });
 
         $locationProvider.html5Mode(true);
